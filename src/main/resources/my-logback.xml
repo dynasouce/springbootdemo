@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <!--   测试环境日志打印位置 -->
+    <property name="TEST_LOG_PATH" value="E:/workspace/developer/springboot/learn/log"></property>
+
+    <!--  正式环境日志打印位置  -->
+    <property name="PROD_LOG_PATH" value="E:/workspace/developer/springboot/learn/log"></property>
+
+    <property name="APP_NAME" value="learn"></property>
+
+    <!--   日志风格     -->
+    <property name="PATTERN" value="%-12(%d{yyyy-MM-dd HH:mm:ss.SSS}) |-%-5level %c.%method [%L]:%msg%n" />
+
+    <!--  level:  ERROR > WARN > INFO > DEBUG > TRACE  -->
+
+    <!-- 开发环境 -->
+    <springProfile name="dev">
+        <!--  开发环境一般使用控制台打印日志   -->
+        <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+            <encoder>
+                <pattern>${PATTERN}</pattern>
+            </encoder>
+        </appender>
+        <root level="DEBUG">
+            <appender-ref ref="CONSOLE" />
+        </root>
+    </springProfile>
+
+    <!-- 测试环境 -->
+    <springProfile name="test">
+        <!--  测试环境使用打印log文件方式输出  -->
+        <appender name="TEST-FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+            <file>${TEST_LOG_PATH}/${APP_NAME}/log.log</file>
+            <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+                <fileNamePattern>${TEST_LOG_PATH}/${APP_NAME}/log-%d{yyyy-MM-dd}.log</fileNamePattern>
+                <MaxHistory>100</MaxHistory>
+            </rollingPolicy>
+            <layout class="ch.qos.logback.classic.PatternLayout">
+                <pattern>${PATTERN}</pattern>
+            </layout>
+        </appender>
+        <root level="INFO">
+            <appender-ref ref="TEST-FILE" />
+        </root>
+    </springProfile>
+
+    <!-- 生产环境 -->
+    <springProfile name="prod">
+        <appender name="PROD_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+            <file>${PROD_LOG_PATH}/${APP_NAME}/log.log</file>
+            <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+                <fileNamePattern>${PROD_LOG_PATH}/${APP_NAME}/log-%d{yyyy-MM-dd}.log</fileNamePattern>
+                <MaxHistory>100</MaxHistory>
+            </rollingPolicy>
+            <layout class="ch.qos.logback.classic.PatternLayout">
+                <pattern>${PATTERN}</pattern>
+            </layout>
+        </appender>
+
+        <root level="INFO">
+            <appender-ref ref="PROD_FILE" />
+        </root>
+    </springProfile>
+
+</configuration>
