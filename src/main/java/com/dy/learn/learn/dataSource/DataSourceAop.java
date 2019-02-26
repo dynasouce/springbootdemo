@@ -15,6 +15,11 @@ import org.springframework.stereotype.Component;
 @Configuration
 public class DataSourceAop {
 
+
+
+
+
+
     private static Logger logger = LoggerFactory.getLogger(DataSourceAop.class);
     @Before("execution(* com.dy.learn.learn.service.*.select*(..)) || execution(* com.dy.learn.learn.service.*.get*(..))|| execution(* com.dy.learn.learn.service.*.query*(..))")
     public void setReadDataSourceType() {
