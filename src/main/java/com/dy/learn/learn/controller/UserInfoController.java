@@ -29,6 +29,10 @@ public class UserInfoController {
         return userInfo;
     }
 
+
+
+
+
     @ResponseBody
     @RequestMapping("update/{userId}")
     public Object update(@PathVariable("userId") Integer userId,String userName){
