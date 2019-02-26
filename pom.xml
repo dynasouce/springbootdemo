@@ -18,7 +18,7 @@
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
-
+<!--2019年2月26日13:53:26-->
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -69,7 +69,6 @@
 			<artifactId>spring-boot-devtools</artifactId>
 			<optional>true</optional>
 		</dependency>
-
 
 		<dependency>
 			<groupId>mysql</groupId>
