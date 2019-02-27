@@ -5,9 +5,9 @@ import com.dy.learn.learn.bean.UserInfo;
 import javafx.application.Application;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.lang.reflect.Field;
 import java.util.*;
@@ -15,8 +15,9 @@ import java.util.*;
 /**
  * 这是一个进入首页的备注
  */
+/*@CrossOrigin(origins = {"*"},allowCredentials = "true")*/
 @RestController
-public class IndexController {
+public class IndexController extends  BaseController{
 
     Logger logger=LoggerFactory.getLogger(IndexController.class);
 
