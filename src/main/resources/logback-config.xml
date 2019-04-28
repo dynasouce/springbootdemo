@@ -2,12 +2,12 @@
 <configuration>
 
     <!--   测试环境日志打印位置 -->
-    <property name="TEST_LOG_PATH" value="E:/workspace/developer/springboot/learn/log"></property>
+    <property name="TEST_LOG_PATH" value="D:\logs"></property>
 
     <!--  正式环境日志打印位置  -->
     <property name="PROD_LOG_PATH" value="E:/workspace/developer/springboot/learn/log"></property>
 
-    <property name="APP_NAME" value="learn"></property>
+    <property name="APP_NAME" value="learnApp"></property>
 
     <!--   日志风格     -->
     <property name="PATTERN" value="%-12(%d{yyyy-MM-dd HH:mm:ss.SSS}) |-%-5level %c.%method [%L]:%msg%n" />
@@ -22,7 +22,7 @@
                 <pattern>${PATTERN}</pattern>
             </encoder>
         </appender>
-        <root level="DEBUG">
+        <root level="INFO">
             <appender-ref ref="CONSOLE" />
         </root>
     </springProfile>
@@ -46,8 +46,8 @@
     </springProfile>
 
     <!-- 生产环境 -->
-    <springProfile name="prod">
-        <appender name="PROD_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <springProfile name="pro">
+        <appender name="PRO_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
             <file>${PROD_LOG_PATH}/${APP_NAME}/log.log</file>
             <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
                 <fileNamePattern>${PROD_LOG_PATH}/${APP_NAME}/log-%d{yyyy-MM-dd}.log</fileNamePattern>
@@ -59,7 +59,7 @@
         </appender>
 
         <root level="INFO">
-            <appender-ref ref="PROD_FILE" />
+            <appender-ref ref="PRO_FILE" />
         </root>
     </springProfile>
 

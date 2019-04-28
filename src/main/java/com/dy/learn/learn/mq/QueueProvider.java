@@ -30,12 +30,12 @@ public class QueueProvider {
         this.jmsMessagingTemplate.convertAndSend(queueType.toString(),msg);
     }
 
-    @JmsListener(destination = "PayQueue")
+    //@JmsListener(destination = "PayQueue")
     public void receivePayQueue(String text){
         System.out.println("接收消息learn.queue.pay：" + text);
     }
 
-    @JmsListener(destination = "LoginQueue")
+    //@JmsListener(destination = "LoginQueue")
     public void receiveLoginQueue(String text){
         System.out.println("接收消息learn.queue.login：" + text);
     }

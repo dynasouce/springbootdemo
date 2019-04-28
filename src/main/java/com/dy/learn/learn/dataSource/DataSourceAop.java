@@ -1,5 +1,7 @@
 package com.dy.learn.learn.dataSource;
 
+import com.dy.learn.learn.enums.DataSourceType;
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -14,18 +16,20 @@ import org.springframework.stereotype.Component;
 @Component
 @Configuration
 public class DataSourceAop {
-////////////////
+
     private static Logger logger = LoggerFactory.getLogger(DataSourceAop.class);
-    @Before("execution(* com.dy.learn.learn.service.*.select*(..)) || execution(* com.dy.learn.learn.service.*.get*(..))|| execution(* com.dy.learn.learn.service.*.query*(..))")
-    public void setReadDataSourceType() {
 
-//        logger.info("dataSource 切换到：Read");
+    @Pointcut("@annotation(com.dy.learn.learn.dataSource.DataSourceSelection)")
+    public void doSelect() {
+
     }
 
-    @Before("execution(* com.dy.learn.learn.service.*.insert*(..)) || execution(* com.dy.learn.learn.service.*.update*(..))")
-    public void setWriteDataSourceType() {
-
-//        logger.info("dataSource 切换到：Write");
+    @Before(value = "doSelect()&&@annotation(ds)")
+    public void salve(JoinPoint jp,DataSourceSelection ds) {
+        if (ds!=null){
+            DynamicDataSourceHolder.setDataSourcesType(ds.type());
+        } else {
+            DynamicDataSourceHolder.setDataSourcesType(DataSourceType.master);
+        }
     }
-
 }

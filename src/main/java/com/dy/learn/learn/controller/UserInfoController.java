@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -21,7 +22,7 @@ public class UserInfoController {
     Logger logger=LoggerFactory.getLogger(this.getClass());
 
     @ResponseBody
-    @RequestMapping("get/{userId}")
+    @RequestMapping(value = "get/{userId}",method = RequestMethod.GET)
     public Object get(@PathVariable("userId") Integer userId,ModelAndView modelAndView){
         logger.info("get userId:{}",userId);
         UserInfo userInfo=userInfoService.getUserInfoById(userId);
@@ -29,12 +30,17 @@ public class UserInfoController {
         return userInfo;
     }
 
-
-
-
+    @ResponseBody
+    @RequestMapping(value = "add/{userName}",method = RequestMethod.POST)
+    public Object add(@PathVariable("userName") String userName) {
+        UserInfo user = new UserInfo();
+        user.setUsername(userName);
+        userInfoService.insertUserInfo(user);
+        return "ok";
+    }
 
     @ResponseBody
-    @RequestMapping("update/{userId}")
+    @RequestMapping(value = "update/{userId}",method = RequestMethod.POST)
     public Object update(@PathVariable("userId") Integer userId,String userName){
         UserInfo user=new UserInfo();
         user.setId(userId);
