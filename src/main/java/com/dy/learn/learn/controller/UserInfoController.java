@@ -1,5 +1,8 @@
 package com.dy.learn.learn.controller;
 
+import com.dy.learn.learn.bean.Query.UserInfoQuery;
+import com.dy.learn.learn.bean.Result;
+import com.dy.learn.learn.bean.ResultPage;
 import com.dy.learn.learn.dao.entity.UserInfo;
 import com.dy.learn.learn.service.UserInfoService;
 import org.slf4j.Logger;
@@ -47,6 +50,11 @@ public class UserInfoController {
         user.setUsername(userName);
         int res=userInfoService.getUserInfo(user);
         return res>0?"ok":"fail";
+    }
+
+    @RequestMapping(value = "user/list",method = RequestMethod.POST)
+    public ResultPage<UserInfo> findUserInfoPage(UserInfoQuery query){
+        return this.userInfoService.findUserInfoPage(query);
     }
 
 }

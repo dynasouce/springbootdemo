@@ -1,6 +1,10 @@
 package com.dy.learn.learn.dao.mapper;
 
+import com.dy.learn.learn.bean.Query.UserInfoQuery;
 import com.dy.learn.learn.dao.entity.UserInfo;
+import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
 
 public interface UserInfoMapper {
     /**
@@ -50,4 +54,6 @@ public interface UserInfoMapper {
      * @mbggenerated
      */
     int updateByPrimaryKey(UserInfo record);
+
+    List<UserInfo> selectUserInfoPage(UserInfoQuery query);
 }

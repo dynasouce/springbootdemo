@@ -20,6 +20,11 @@ public class Result <T>{
         return result;
     }
 
+    public void setResultCode(ResultCode resultCode){
+        this.errorCode = resultCode.getErrorCode();
+        this.errorMsg = resultCode.getErrorMsg();
+    }
+
     public String getUrl() {
         return url;
     }
