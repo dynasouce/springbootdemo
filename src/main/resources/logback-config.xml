@@ -7,12 +7,24 @@
     <!--  正式环境日志打印位置  -->
     <property name="PROD_LOG_PATH" value="E:/workspace/developer/springboot/learn/log"></property>
 
-    <property name="APP_NAME" value="learnApp"></property>
+    <property name="APP_NAME" value="learnApp" />
+    <property name="LOG_LEVEL" value="INFO" />
 
     <!--   日志风格     -->
     <property name="PATTERN" value="%-12(%d{yyyy-MM-dd HH:mm:ss.SSS}) |-%-5level %c.%method [%L]:%msg%n" />
 
     <!--  level:  ERROR > WARN > INFO > DEBUG > TRACE  -->
+    <logger name="druid.sql.Connection" level="${LOG_LEVEL}"/>
+    <logger name="druid.sql.ResultSet" level="${LOG_LEVEL}"/>
+    <logger name="druid.sql.Statement" level="${LOG_LEVEL}"/>
+    <logger name="org.apache.ibatis" level="${LOG_LEVEL}"/>
+    <logger name="java.sql.Connection" level="${LOG_LEVEL}"/>
+    <logger name="java.sql.Statement" level="${LOG_LEVEL}"/>
+    <logger name="java.sql.PreparedStatement" level="${LOG_LEVEL}"/>
+
+    <!-- 打印SQL语句,要根据每个项目的包名进行修改 TODO -->
+    <logger name="com.dy.learn.learn.dao.mapper" level="DEBUG" />
+
 
     <!-- 开发环境 -->
     <springProfile name="dev">
