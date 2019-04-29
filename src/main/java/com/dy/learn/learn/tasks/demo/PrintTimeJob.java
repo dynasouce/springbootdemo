@@ -1,6 +1,6 @@
-package com.dy.learn.learn.Tasks.demo;
+package com.dy.learn.learn.tasks.demo;
 
-import com.dy.learn.learn.Tasks.AbstractJob;
+import com.dy.learn.learn.tasks.AbstractJob;
 import org.quartz.JobExecutionContext;
 
 import java.util.Date;

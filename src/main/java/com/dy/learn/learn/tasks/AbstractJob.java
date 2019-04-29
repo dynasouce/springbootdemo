@@ -1,4 +1,4 @@
-package com.dy.learn.learn.Tasks;
+package com.dy.learn.learn.tasks;
 
 import com.dy.learn.learn.dao.entity.TaskInfo;
 import com.dy.learn.learn.service.TaskService;

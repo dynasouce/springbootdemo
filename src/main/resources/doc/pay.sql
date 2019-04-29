@@ -34,8 +34,8 @@ CREATE TABLE `task_info` (
 -- ----------------------------
 -- Records of task_info
 -- ----------------------------
-INSERT INTO `task_info` VALUES ('1', 'PrintTimeJob', 'PrintTimeJob', 'com.dy.learn.learn.Tasks.demo.PrintTimeJob', '0 0/1 * * * ?', 'Normal', '2019-04-29 15:45:00', null);
-INSERT INTO `task_info` VALUES ('2', 'HelloJob', 'HelloJob', 'com.dy.learn.learn.Tasks.demo.HelloJob', '0 0/1 * * * ?', 'Normal', '2019-04-29 15:45:00', null);
+INSERT INTO `task_info` VALUES ('1', 'PrintTimeJob', 'PrintTimeJob', 'com.dy.learn.learn.tasks.demo.PrintTimeJob', '0 0/1 * * * ?', 'Normal', '2019-04-29 15:45:00', null);
+INSERT INTO `task_info` VALUES ('2', 'HelloJob', 'HelloJob', 'com.dy.learn.learn.tasks.demo.HelloJob', '0 0/1 * * * ?', 'Normal', '2019-04-29 15:45:00', null);
 
 -- ----------------------------
 -- Table structure for user_info

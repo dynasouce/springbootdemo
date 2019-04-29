@@ -1,12 +1,10 @@
-package com.dy.learn.learn.Tasks.demo;
+package com.dy.learn.learn.tasks.demo;
 
-import com.dy.learn.learn.Tasks.AbstractJob;
+import com.dy.learn.learn.tasks.AbstractJob;
 import com.dy.learn.learn.service.TaskService;
 import com.dy.learn.learn.service.UserInfoService;
 import org.quartz.JobExecutionContext;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import java.util.Date;
 
 public class HelloJob extends AbstractJob {
 
