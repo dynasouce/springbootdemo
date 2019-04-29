@@ -1,7 +1,7 @@
 package com.dy.learn.learn.controller;
 
+import com.dy.learn.learn.mq.MQProducerService;
 import com.dy.learn.learn.mq.QueueEnum;
-import com.dy.learn.learn.mq.QueueProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,19 +14,19 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class JsmController extends  BaseController {
 
     @Autowired
-    private QueueProvider learnJmsComponent;
+    private MQProducerService mqProducerService;
 
     @ResponseBody
     @RequestMapping(value = "sendPay/{msg}",method = RequestMethod.POST)
     public Object sendPay(@PathVariable("msg") String msg){
-        learnJmsComponent.send(QueueEnum.PayQueue,msg);
+        mqProducerService.sendQueueMessage(QueueEnum.PayQueue,msg);
         return "ok";
     }
 
     @ResponseBody
     @RequestMapping(value = "sendLogin/{msg}",method = RequestMethod.POST)
     public Object sendLogin(@PathVariable("msg") String msg){
-        learnJmsComponent.send(QueueEnum.LoginQueue,msg);
+        mqProducerService.sendTopicMessage(QueueEnum.LoginQueue,msg);
         return "ok";
     }
 
