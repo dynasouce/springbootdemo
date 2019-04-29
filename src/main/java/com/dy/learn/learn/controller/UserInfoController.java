@@ -37,7 +37,7 @@ public class UserInfoController {
     @RequestMapping(value = "add/{userName}",method = RequestMethod.POST)
     public Object add(@PathVariable("userName") String userName) {
         UserInfo user = new UserInfo();
-        user.setUsername(userName);
+        user.setName(userName);
         userInfoService.insertUserInfo(user);
         return "ok";
     }
@@ -46,8 +46,8 @@ public class UserInfoController {
     @RequestMapping(value = "update/{userId}",method = RequestMethod.POST)
     public Object update(@PathVariable("userId") Integer userId,String userName){
         UserInfo user=new UserInfo();
-        user.setId(userId);
-        user.setUsername(userName);
+        user.setUserId(userId.toString());
+        user.setName(userName);
         int res=userInfoService.getUserInfo(user);
         return res>0?"ok":"fail";
     }
