@@ -1,6 +1,6 @@
 package com.dy.learn.learn.dataSource;
 
-import com.dy.learn.learn.enums.DataSourceType;
+import com.dy.learn.learn.enums.EDataSourceType;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -29,7 +29,7 @@ public class DataSourceAop {
         if (ds!=null){
             DynamicDataSourceHolder.setDataSourcesType(ds.type());
         } else {
-            DynamicDataSourceHolder.setDataSourcesType(DataSourceType.master);
+            DynamicDataSourceHolder.setDataSourcesType(EDataSourceType.master);
         }
     }
 }

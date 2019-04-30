@@ -1,6 +1,6 @@
 package com.dy.learn.learn.enums;
 
-public enum ResultCode {
+public enum EResultCode {
 
     SUCCESS(1000,"成功"),
     USENAME_NOT_EXISTS(2001,"用户不存在"),
@@ -9,7 +9,7 @@ public enum ResultCode {
     private int errorCode;
     private String errorMsg;
 
-    ResultCode(int code, String msg) {
+    EResultCode(int code, String msg) {
         this.errorCode = code;
         this.errorMsg = msg;
     }

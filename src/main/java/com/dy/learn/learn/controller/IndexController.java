@@ -2,14 +2,11 @@ package com.dy.learn.learn.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.dy.learn.learn.bean.UserInfo;
-import com.dy.learn.learn.enums.ResultCode;
+import com.dy.learn.learn.enums.EResultCode;
 import com.dy.learn.learn.exception.CoreExceltion;
-import javafx.application.Application;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 import java.lang.reflect.Field;
 import java.util.*;
@@ -62,7 +59,7 @@ public class IndexController extends  BaseController{
     @RequestMapping(value = "errorPage",method = RequestMethod.GET)
     public String error(){
         logger.info("error request...");
-        throw new CoreExceltion(ResultCode.USENAME_NOT_EXISTS);
+        throw new CoreExceltion(EResultCode.USENAME_NOT_EXISTS);
 
     }
 

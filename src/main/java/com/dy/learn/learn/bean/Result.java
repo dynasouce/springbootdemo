@@ -1,6 +1,6 @@
 package com.dy.learn.learn.bean;
 
-import com.dy.learn.learn.enums.ResultCode;
+import com.dy.learn.learn.enums.EResultCode;
 
 public class Result <T>{
 
@@ -13,14 +13,14 @@ public class Result <T>{
     private T data;
 
 
-    public static <T> Result<T> build(ResultCode resultCode){
+    public static <T> Result<T> build(EResultCode resultCode){
         Result<T> result = new Result<T>();
         result.setErrorCode(resultCode.getErrorCode());
         result.setErrorMsg(resultCode.getErrorMsg());
         return result;
     }
 
-    public void setResultCode(ResultCode resultCode){
+    public void setResultCode(EResultCode resultCode){
         this.errorCode = resultCode.getErrorCode();
         this.errorMsg = resultCode.getErrorMsg();
     }

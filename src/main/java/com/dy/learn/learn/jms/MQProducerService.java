@@ -1,4 +1,6 @@
-package com.dy.learn.learn.mq;
+package com.dy.learn.learn.jms;
+
+import com.dy.learn.learn.enums.EQueueEnum;
 
 public interface MQProducerService {
 
@@ -7,13 +9,13 @@ public interface MQProducerService {
      * @param queueType 队列类型
      * @param message 消息内容
      */
-    void sendQueueMessage(QueueEnum queueType, String message);
+    void sendQueueMessage(EQueueEnum queueType, String message);
 
     /**
      * 发送Topic消息
      * @param queueType 队列类型
      * @param message 消息内容
      */
-    void sendTopicMessage(QueueEnum queueType, String message);
+    void sendTopicMessage(EQueueEnum queueType, String message);
 
 }

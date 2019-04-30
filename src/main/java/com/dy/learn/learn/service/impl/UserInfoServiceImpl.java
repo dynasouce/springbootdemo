@@ -5,8 +5,8 @@ import com.dy.learn.learn.bean.ResultPage;
 import com.dy.learn.learn.dao.entity.UserInfo;
 import com.dy.learn.learn.dao.mapper.UserInfoMapper;
 import com.dy.learn.learn.dataSource.DataSourceSelection;
-import com.dy.learn.learn.enums.DataSourceType;
-import com.dy.learn.learn.enums.ResultCode;
+import com.dy.learn.learn.enums.EDataSourceType;
+import com.dy.learn.learn.enums.EResultCode;
 import com.dy.learn.learn.service.UserInfoService;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,20 +19,20 @@ public class UserInfoServiceImpl implements UserInfoService {
     private UserInfoMapper userInfoMapper;
 
     @Override
-    @DataSourceSelection(type = DataSourceType.slave)
+    @DataSourceSelection(type = EDataSourceType.slave)
     public UserInfo getUserInfoById(Integer userId) {
         return userInfoMapper.selectByPrimaryKey(userId.toString());
     }
 
     @Override
-    @DataSourceSelection(type = DataSourceType.slave)
+    @DataSourceSelection(type = EDataSourceType.slave)
     public int getUserInfo(UserInfo userInfo) {
         int res=this.userInfoMapper.updateByPrimaryKeySelective(userInfo);
         return res;
     }
 
     @Override
-    @DataSourceSelection(type = DataSourceType.master)
+    @DataSourceSelection(type = EDataSourceType.master)
     public void insertUserInfo(UserInfo userInfo) {
         int i=userInfoMapper.insert(userInfo);
     }
@@ -45,7 +45,7 @@ public class UserInfoServiceImpl implements UserInfoService {
         }
         //List<UserInfo> lists = userInfoMapper.selectUserInfoPage(query);
         //result.setData(lists);
-        result.setResultCode(ResultCode.SUCCESS);
+        result.setResultCode(EResultCode.SUCCESS);
         return result;
     }
 

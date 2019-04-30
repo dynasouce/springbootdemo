@@ -1,6 +1,6 @@
 package com.dy.learn.learn.exception;
 
-import com.dy.learn.learn.enums.ResultCode;
+import com.dy.learn.learn.enums.EResultCode;
 
 public class CoreExceltion extends RuntimeException {
 
@@ -12,7 +12,7 @@ public class CoreExceltion extends RuntimeException {
         this.errorMsg = message;
     }
 
-    public CoreExceltion(ResultCode code){
+    public CoreExceltion(EResultCode code){
         super(code.getErrorMsg());
         this.errorMsg = code.getErrorMsg();
         this.errorCode=code.getErrorCode();

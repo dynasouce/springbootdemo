@@ -1,5 +1,5 @@
 package com.dy.learn.learn.enums;
 
-public enum DataSourceType {
+public enum EDataSourceType {
     master, slave;
 }

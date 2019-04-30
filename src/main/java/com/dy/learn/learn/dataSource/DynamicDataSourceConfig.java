@@ -1,7 +1,7 @@
 package com.dy.learn.learn.dataSource;
 
 import com.alibaba.druid.pool.DruidDataSource;
-import com.dy.learn.learn.enums.DataSourceType;
+import com.dy.learn.learn.enums.EDataSourceType;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -40,8 +40,8 @@ public class DynamicDataSourceConfig {
     public DynamicDataSource getDynamicDataSource() {
         DynamicDataSource dynamicDataSource = new DynamicDataSource();
         Map<Object, Object> dataSourceMap = new HashMap<Object, Object>();
-        dataSourceMap.put(DataSourceType.master, masterDataSource());
-        dataSourceMap.put(DataSourceType.slave, slaveDataSource());
+        dataSourceMap.put(EDataSourceType.master, masterDataSource());
+        dataSourceMap.put(EDataSourceType.slave, slaveDataSource());
         dynamicDataSource.setDefaultTargetDataSource(masterDataSource());
         dynamicDataSource.setTargetDataSources(dataSourceMap);
         return dynamicDataSource;

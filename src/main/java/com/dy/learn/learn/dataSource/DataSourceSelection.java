@@ -1,7 +1,7 @@
 package com.dy.learn.learn.dataSource;
 
 
-import com.dy.learn.learn.enums.DataSourceType;
+import com.dy.learn.learn.enums.EDataSourceType;
 
 import java.lang.annotation.*;
 
@@ -13,6 +13,6 @@ import java.lang.annotation.*;
 @Documented
 public @interface DataSourceSelection {
 
-    DataSourceType type() default DataSourceType.master;
+    EDataSourceType type() default EDataSourceType.master;
 
 }

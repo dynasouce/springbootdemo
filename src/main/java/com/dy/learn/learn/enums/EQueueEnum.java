@@ -1,6 +1,6 @@
-package com.dy.learn.learn.mq;
+package com.dy.learn.learn.enums;
 
-public enum QueueEnum {
+public enum EQueueEnum {
 
     PayQueue("PayQueue","PayQueue"),
     LoginQueue("LoginQueue","LoginQueue");
@@ -8,7 +8,7 @@ public enum QueueEnum {
     private String code;
     private String msg;
 
-    private QueueEnum(String code,String msg){
+    private EQueueEnum(String code, String msg){
         this.code=code;
         this.msg=msg;
     }

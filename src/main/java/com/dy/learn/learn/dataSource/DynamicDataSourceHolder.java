@@ -1,20 +1,20 @@
 package com.dy.learn.learn.dataSource;
 
-import com.dy.learn.learn.enums.DataSourceType;
+import com.dy.learn.learn.enums.EDataSourceType;
 
 public class DynamicDataSourceHolder {
 
-    private static final ThreadLocal<DataSourceType> holder = new ThreadLocal<DataSourceType>();
+    private static final ThreadLocal<EDataSourceType> holder = new ThreadLocal<EDataSourceType>();
 
     private DynamicDataSourceHolder(){
 
     }
 
-    public static void setDataSourcesType(DataSourceType dataSourcesType){
+    public static void setDataSourcesType(EDataSourceType dataSourcesType){
         holder.set(dataSourcesType);
     }
 
-    public static DataSourceType getDataSourcesType(){
+    public static EDataSourceType getDataSourcesType(){
         return holder.get();
     }
 
