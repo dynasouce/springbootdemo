@@ -51,7 +51,7 @@ import java.security.SecureRandom;
  * 使用说明：
  * <pre>
  *     依赖于APP（Google身份验证器或阿里巴巴的身份宝），需先下载此app，
- *     调用GoogleAuthenticator.getQRBarcodeURL(,,,)进行扫码，app上会生成一个每1分钟自动刷新的
+ *     调用GoogleAuthenticator.getQRBarcodeURL(,,,)进行扫码，app上会生成一个每1分钟自动刷新的6位数字
  *     当登录时，调用GoogleAuthenticator.authcode(,,)进行校验
  *
  *     注意：系统运行的时间必须 = 手机的时间（时区、时间）当校验失败时，多半是时间不一直的情况。
